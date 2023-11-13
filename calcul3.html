@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: right;
+        }
+
+        #calculator {
+            width: 300px;
+            margin: 50px auto;
+            border: 0.5px solid #ccc;
+            border-radius: 5px;
+            background-color: #f4f4f4;
+            padding: 10px;
+        }
+
+        #display {
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 8px;
+           box-sizing: border-box;
+           text-align: right;
+        }
+
+        .button {
+            width: 48px;
+            height: 48px;
+            margin: 5px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .button1 {
+            width: 70px;
+            height: 238px;
+            font-size: 30px;
+            background-color: #0c9fd4;;
+            color:white;
+            position:absolute;
+            top: 180px;
+            border:1px solid #0c9fd4;
+            }
+            .operation{
+                background-color: gray;
+            }
+    </style>
+</head>
+<body>
+
+    <table id="calculator">
+        <tr>
+            <td colspan="6"> 
+                <input type="text" id="display" readonly> 
+            </td>
+        </tr>
+        <tr class="operation">
+            <td><input type="button" class="button" value="-" onclick="addToDisplay('-')"></td>
+            <td><input type="button" class="button" value="+" onclick="addToDisplay('+')"></td>
+            <td><input type="button" class="button" value="x" onclick="addToDisplay('*')"></td>
+            <td><input type="button" class="button" value="÷" onclick="addToDisplay('÷')"></td>
+        </tr>
+        <tr>
+            <td><input type="button" class="button" value="7" onclick="addToDisplay('7')"></td>
+            <td><input type="button" class="button" value="8" onclick="addToDisplay('8')"></td>
+            <td><input type="button" class="button" value="9" onclick="addToDisplay('9')"></td>
+            <!--<td><input type="button" class="button" value="/" onclick="addToDisplay('/')"></td>-->
+            <tr>
+                <td colspan="3">
+                    <input type="button" class="button1" value="=" onclick="calculate()">
+                </td>
+            </tr> 
+        </tr>
+        <tr>
+            <td><input type="button" class="button" value="4" onclick="addToDisplay('4')"></td>
+            <td><input type="button" class="button" value="5" onclick="addToDisplay('5')"></td>
+            <td><input type="button" class="button" value="6" onclick="addToDisplay('6')"></td>
+           <!-- <input type="button" class="button" value="=" onclick="calculate()"> -->
+            <!--<td><input type="button" class="button" value="-" onclick="addToDisplay('-')"></td>-->
+        </tr>
+        <tr>
+            <td><input type="button" class="button" value="1" onclick="addToDisplay('1')"></td>
+            <td><input type="button" class="button" value="2" onclick="addToDisplay('2')"></td>
+            <td><input type="button" class="button" value="3" onclick="addToDisplay('3')"></td>
+           <!-- <td><input type="button" class="button" value="+" onclick="addToDisplay('+')"></td>-->
+        </tr>
+        <tr>
+            <td><input type="button" class="button" value="0" onclick="addToDisplay('0')"></td>
+            <td><input type="button" class="button" value="." onclick="addToDisplay('.')"></td>
+            <!--<td><input type="button" class="button" value="*" onclick="addToDisplay('*')"></td>-->
+            <td><input type="button" class="button" value="C" onclick="clearDisplay()"></td>
+        </tr>
+        
+    </table>
+
+    <script>
+        function addToDisplay(value) {
+            document.getElementById('display').value += value;
+        }
+
+        function clearDisplay() {
+            document.getElementById('display').value = '';
+        }
+
+        function calculate() {
+            try {
+                document.getElementById('display').value = eval(document.getElementById('display').value);
+            } catch (error) {
+                document.getElementById('display').value = 'Error';
+            }
+        }
+    </script>
+
+</body>
+</html>
